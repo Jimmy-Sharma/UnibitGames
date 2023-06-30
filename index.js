@@ -10,30 +10,30 @@
 // Second Combination For “8” : [ [ 1,3,2,2], [8,-4,2,2],....,[n,n,n,n] ]
 
 
-let arr = [1, 3, 2, 2, -4, -6, 2, 8]
+let arr = [1, 3, 2, 2, -4, -6, -2, 8];
 
 //1.First Combination For “4” 
 function combinationForFour(arr) {
-    let str = [1, 3, 2, 2, -4, -6, -2, 8]
-    let target = 4
-    let ans = []
+    let str = [1, 3, 2, 2, -4, -6, -2, 8];
+    let target = 4;
+    let ans = [];
 
     for (let i = 0; i <= str.length; i++) {
         for (let j = i + 1; j <= str.length; j++) {
             let subArr = []
             if ((str[i] + str[j]) == target) {
-                subArr.push(str[i])
-                subArr.push(str[j])
-                str[j] = "a"
-                str[i] = "a"
-                ans.push(subArr)
+                subArr.push(str[i]);
+                subArr.push(str[j]);
+                str[j] = "a";
+                str[i] = "a";
+                ans.push(subArr);
                 break;
             }
         }
     }
-    console.log(ans)
+    console.log(ans);
 }
-combinationForFour(arr)
+combinationForFour(arr);
 
 
 //2.Merge Into a single Array :
@@ -41,20 +41,20 @@ function mergeIntoASingleArray(arr) {
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < (arr.length - i - 1); j++) {
             if (arr[j] > arr[j + 1]) {
-                var temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
         }
     }
-    console.log(arr)
+    console.log(arr);
 }
-mergeIntoASingleArray(arr)
+mergeIntoASingleArray(arr);
 
 
 // 3.Second Combination For “8” :
 function combinationForEight(arr) {
-    let target=8;
+    let target = 8;
     const patterns = [];
     for (let i = 1; i <= arr.length; i++) {
         for (const combination of combinations(arr, i)) {
@@ -63,7 +63,7 @@ function combinationForEight(arr) {
             }
         }
     }
-    return patterns;
+    console.log(patterns);
 }
 
 function* combinations(arr, n) {
@@ -80,4 +80,4 @@ function* combinations(arr, n) {
     }
 }
 
-console.log(combinationForEight(arr));
+combinationForEight(arr);
